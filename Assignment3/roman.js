@@ -17,15 +17,18 @@ exports.toRoman = function(number)
 	};
 	
 	var roman = "";
-	
-	for(var key in romanToNum){
-		//console.log(key);
-		while(number >= romanToNum[key]){
-			roman += key;
-			number -= romanToNum[key];
+	if(number > 3999){
+		return("The biggest number we can form in Roman numerals is 3999");
+	}else {
+		for(var key in romanToNum){
+			//console.log(key);
+			while(number >= romanToNum[key]){
+				roman += key;
+				number -= romanToNum[key];
+			}
 		}
+		
+		return("result : " + roman);
 	}
-	
-	return("result : " + roman);
 };
 
